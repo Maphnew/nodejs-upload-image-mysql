@@ -2,9 +2,11 @@ const express = require("express");
 const app = express();
 const db = require("./src/models");
 const initRoutes = require("./src/routes/web");
+const cors = require('cors')
 
 global.__basedir = __dirname;
 
+app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 initRoutes(app);
 
